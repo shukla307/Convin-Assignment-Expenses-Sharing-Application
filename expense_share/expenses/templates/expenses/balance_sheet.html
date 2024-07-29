@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balance Sheet</title>
+</head>
+<body>
+    <h1>Balance Sheet</h1>
+    <ul>
+        {% for creditor, amount in balance_sheet.items %}
+        <li>{{ creditor.username }}: {{ amount }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'expense_list' %}">Back to Expenses</a>
+</body>
+</html>
+
+
