@@ -1,17 +1,86 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Balance Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .amount {
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Balance Sheet</h1>
-    <ul>
-        {% for creditor, amount in balance_sheet.items %}
-        <li>{{ creditor.username }}: {{ amount }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'expense_list' %}">Back to Expenses</a>
+    <header>
+        <h1>Balance Sheet</h1>
+    </header>
+    <div class="container">
+        <ul>
+            {% for creditor, amount in balance_sheet.items %}
+            <li>
+                {{ creditor.username }}: <span class="amount">{{ amount }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{% url 'expense_list' %}">Back to Expenses</a>
+    </div>
 </body>
 </html>
+
 
 
