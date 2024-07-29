@@ -2,14 +2,119 @@
 <html>
 <head>
     <title>Add Expense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #0056b3;
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-field input, .form-field select, .form-field textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-field input[type="submit"] {
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .form-field input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Add Expense</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add</button>
-    </form>
-    <a href="{% url 'expense_list' %}">Back to Expenses</a>
+    <header>
+        <h1>Add Expense</h1>
+    </header>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Expense</button>
+        </form>
+        <a class="back-link" href="{% url 'expense_list' %}">Back to Expenses</a>
+    </div>
 </body>
 </html>
+
+
+
